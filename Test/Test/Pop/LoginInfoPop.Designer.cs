@@ -33,8 +33,8 @@ namespace Test.Pop
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbox_ID = new System.Windows.Forms.TextBox();
+            this.tbox_password = new System.Windows.Forms.TextBox();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -79,20 +79,20 @@ namespace Test.Pop
             this.label2.TabIndex = 10;
             this.label2.Text = "비밀번호";
             // 
-            // textBox1
+            // tbox_ID
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 21);
-            this.textBox1.TabIndex = 11;
+            this.tbox_ID.Location = new System.Drawing.Point(19, 93);
+            this.tbox_ID.Name = "tbox_ID";
+            this.tbox_ID.Size = new System.Drawing.Size(127, 21);
+            this.tbox_ID.TabIndex = 11;
             // 
-            // textBox2
+            // tbox_password
             // 
-            this.textBox2.Location = new System.Drawing.Point(186, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(127, 21);
-            this.textBox2.TabIndex = 12;
+            this.tbox_password.Location = new System.Drawing.Point(186, 93);
+            this.tbox_password.Name = "tbox_password";
+            this.tbox_password.PasswordChar = '*';
+            this.tbox_password.Size = new System.Drawing.Size(127, 21);
+            this.tbox_password.TabIndex = 12;
             // 
             // btn_close
             // 
@@ -127,8 +127,8 @@ namespace Test.Pop
             this.ClientSize = new System.Drawing.Size(363, 177);
             this.Controls.Add(this.btn_close);
             this.Controls.Add(this.btn_save);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbox_password);
+            this.Controls.Add(this.tbox_ID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -148,8 +148,8 @@ namespace Test.Pop
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbox_ID;
+        private System.Windows.Forms.TextBox tbox_password;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_save;
     }

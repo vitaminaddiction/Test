@@ -32,10 +32,10 @@ namespace Test.Pop
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_name = new System.Windows.Forms.Label();
+            this.label_code = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,23 +68,23 @@ namespace Test.Pop
             this.label4.TabIndex = 11;
             this.label4.Text = "삭제하시겠습니까?";
             // 
-            // label2
+            // label_name
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "부서명 : ";
+            this.label_name.AutoSize = true;
+            this.label_name.Location = new System.Drawing.Point(12, 88);
+            this.label_name.Name = "label_name";
+            this.label_name.Size = new System.Drawing.Size(53, 12);
+            this.label_name.TabIndex = 10;
+            this.label_name.Text = "사원명 : ";
             // 
-            // label1
+            // label_code
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 67);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "부서코드 : ";
+            this.label_code.AutoSize = true;
+            this.label_code.Location = new System.Drawing.Point(12, 67);
+            this.label_code.Name = "label_code";
+            this.label_code.Size = new System.Drawing.Size(69, 12);
+            this.label_code.TabIndex = 9;
+            this.label_code.Text = "사원 코드 : ";
             // 
             // btn_close
             // 
@@ -99,18 +99,18 @@ namespace Test.Pop
             this.btn_close.UseVisualStyleBackColor = false;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // btn_save
+            // btn_delete
             // 
-            this.btn_save.BackColor = System.Drawing.Color.LightCoral;
-            this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_save.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_save.Location = new System.Drawing.Point(145, 168);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(111, 25);
-            this.btn_save.TabIndex = 32;
-            this.btn_save.Text = "삭제";
-            this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            this.btn_delete.BackColor = System.Drawing.Color.LightCoral;
+            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_delete.Location = new System.Drawing.Point(145, 168);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(111, 25);
+            this.btn_delete.TabIndex = 32;
+            this.btn_delete.Text = "삭제";
+            this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // EmployeeDeletePop
             // 
@@ -118,10 +118,10 @@ namespace Test.Pop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 205);
             this.Controls.Add(this.btn_close);
-            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_name);
+            this.Controls.Add(this.label_code);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeDeletePop";
@@ -138,9 +138,9 @@ namespace Test.Pop
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_name;
+        private System.Windows.Forms.Label label_code;
         private System.Windows.Forms.Button btn_close;
-        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_delete;
     }
 }

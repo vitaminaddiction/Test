@@ -40,11 +40,15 @@ namespace Test.Pop
             this.btn_modify = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,11 +162,38 @@ namespace Test.Pop
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dGridView);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 47);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panel3.Size = new System.Drawing.Size(784, 403);
+            this.panel3.TabIndex = 4;
+            // 
+            // dGridView
+            // 
+            this.dGridView.AllowUserToAddRows = false;
+            this.dGridView.AllowUserToDeleteRows = false;
+            this.dGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dGridView.Location = new System.Drawing.Point(0, 15);
+            this.dGridView.MultiSelect = false;
+            this.dGridView.Name = "dGridView";
+            this.dGridView.ReadOnly = true;
+            this.dGridView.RowTemplate.Height = 23;
+            this.dGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridView.Size = new System.Drawing.Size(784, 388);
+            this.dGridView.TabIndex = 2;
+            // 
             // DepartmentPop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 450);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DepartmentPop";
@@ -173,6 +204,8 @@ namespace Test.Pop
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,5 +222,7 @@ namespace Test.Pop
         private System.Windows.Forms.Button btn_modify;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView dGridView;
     }
 }

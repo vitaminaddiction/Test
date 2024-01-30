@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\App.cs" />
+    <Compile Include="DB\DBConnector.cs" />
+    <Compile Include="DB\Department.cs" />
+    <Compile Include="DB\Employee.cs" />
     <Compile Include="Pop\EmployeeAddPop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +106,7 @@
     <Compile Include="SubPop\DepartmentSubPopModify.Designer.cs">
       <DependentUpon>DepartmentSubPopModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\Validation.cs" />
     <EmbeddedResource Include="Pop\EmployeeAddPop.resx">
       <DependentUpon>EmployeeAddPop.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,8 +156,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Frame\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

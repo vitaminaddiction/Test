@@ -112,6 +112,7 @@ namespace Test.SubPop
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Tomato;
             this.label4.Location = new System.Drawing.Point(171, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
@@ -121,6 +122,7 @@ namespace Test.SubPop
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Tomato;
             this.label3.Location = new System.Drawing.Point(12, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 12);

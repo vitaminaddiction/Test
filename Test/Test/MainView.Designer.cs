@@ -44,16 +44,14 @@ namespace Test
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -208,8 +206,7 @@ namespace Test
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView2);
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.dGridView);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 47);
             this.panel3.Name = "panel3";
@@ -217,27 +214,21 @@ namespace Test
             this.panel3.Size = new System.Drawing.Size(1445, 445);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView2
+            // dGridView
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 15);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(164, 430);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(164, 15);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1281, 430);
-            this.dataGridView1.TabIndex = 0;
+            this.dGridView.AllowUserToAddRows = false;
+            this.dGridView.AllowUserToDeleteRows = false;
+            this.dGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dGridView.Location = new System.Drawing.Point(0, 15);
+            this.dGridView.MultiSelect = false;
+            this.dGridView.Name = "dGridView";
+            this.dGridView.ReadOnly = true;
+            this.dGridView.RowTemplate.Height = 23;
+            this.dGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGridView.Size = new System.Drawing.Size(1445, 430);
+            this.dGridView.TabIndex = 1;
             // 
             // MainView
             // 
@@ -256,8 +247,7 @@ namespace Test
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,8 +268,7 @@ namespace Test
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dGridView;
     }
 }
 
