@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Test.DB
 {
-    class Department
+    public class Department
     {
         public int id { get; set; }
+        [DisplayName("부서 코드")]
         public string code { get; set; }
+        [DisplayName("부서명")]
         public string name { get; set; }
+        [DisplayName("메모")]
         public string memo { get; set; }
 
         public Department(string code, string name, string memo)
@@ -27,7 +31,6 @@ namespace Test.DB
             this.name = name;
             this.memo = memo;
         }
-
 
         public override string ToString()
         {

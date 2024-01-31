@@ -42,6 +42,9 @@ namespace Test.Pop
             this.tbox_messengerId = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.rbtn_female = new System.Windows.Forms.RadioButton();
+            this.rbtn_male = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tbox_state = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,9 +70,6 @@ namespace Test.Pop
             this.label13 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
-            this.rbtn_female = new System.Windows.Forms.RadioButton();
-            this.rbtn_male = new System.Windows.Forms.RadioButton();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -229,6 +229,38 @@ namespace Test.Pop
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(138, 68);
             this.panel11.TabIndex = 8;
+            // 
+            // rbtn_female
+            // 
+            this.rbtn_female.AutoSize = true;
+            this.rbtn_female.Location = new System.Drawing.Point(68, 36);
+            this.rbtn_female.Name = "rbtn_female";
+            this.rbtn_female.Size = new System.Drawing.Size(35, 16);
+            this.rbtn_female.TabIndex = 9;
+            this.rbtn_female.Text = "여";
+            this.rbtn_female.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_male
+            // 
+            this.rbtn_male.AutoSize = true;
+            this.rbtn_male.Checked = true;
+            this.rbtn_male.Location = new System.Drawing.Point(10, 36);
+            this.rbtn_male.Name = "rbtn_male";
+            this.rbtn_male.Size = new System.Drawing.Size(35, 16);
+            this.rbtn_male.TabIndex = 8;
+            this.rbtn_male.TabStop = true;
+            this.rbtn_male.Text = "남";
+            this.rbtn_male.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(8, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 12);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "성별";
             // 
             // panel10
             // 
@@ -407,7 +439,6 @@ namespace Test.Pop
             this.cbox_Dcode.Name = "cbox_Dcode";
             this.cbox_Dcode.Size = new System.Drawing.Size(121, 20);
             this.cbox_Dcode.TabIndex = 1;
-            this.cbox_Dcode.SelectedIndexChanged += new System.EventHandler(this.cbox_Dcode_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -457,7 +488,6 @@ namespace Test.Pop
             this.btn_close.TabIndex = 25;
             this.btn_close.Text = "닫기";
             this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_save
             // 
@@ -470,39 +500,6 @@ namespace Test.Pop
             this.btn_save.TabIndex = 24;
             this.btn_save.Text = "저장";
             this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
-            // 
-            // rbtn_female
-            // 
-            this.rbtn_female.AutoSize = true;
-            this.rbtn_female.Location = new System.Drawing.Point(68, 36);
-            this.rbtn_female.Name = "rbtn_female";
-            this.rbtn_female.Size = new System.Drawing.Size(35, 16);
-            this.rbtn_female.TabIndex = 9;
-            this.rbtn_female.Text = "여";
-            this.rbtn_female.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_male
-            // 
-            this.rbtn_male.AutoSize = true;
-            this.rbtn_male.Checked = true;
-            this.rbtn_male.Location = new System.Drawing.Point(10, 36);
-            this.rbtn_male.Name = "rbtn_male";
-            this.rbtn_male.Size = new System.Drawing.Size(35, 16);
-            this.rbtn_male.TabIndex = 8;
-            this.rbtn_male.TabStop = true;
-            this.rbtn_male.Text = "남";
-            this.rbtn_male.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(8, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(29, 12);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "성별";
             // 
             // EmployeeModifyPop
             // 

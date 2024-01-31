@@ -97,7 +97,6 @@ namespace Test.SubPop
             this.btn_close.TabIndex = 31;
             this.btn_close.Text = "취소";
             this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_delete
             // 
@@ -110,7 +109,6 @@ namespace Test.SubPop
             this.btn_delete.TabIndex = 30;
             this.btn_delete.Text = "삭제";
             this.btn_delete.UseVisualStyleBackColor = false;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // DepartmentSubPopDelete
             // 

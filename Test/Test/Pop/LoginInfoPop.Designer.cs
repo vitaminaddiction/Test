@@ -105,7 +105,6 @@ namespace Test.Pop
             this.btn_close.TabIndex = 31;
             this.btn_close.Text = "닫기";
             this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_save
             // 
@@ -118,7 +117,6 @@ namespace Test.Pop
             this.btn_save.TabIndex = 30;
             this.btn_save.Text = "저장";
             this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // LoginInfoPop
             // 

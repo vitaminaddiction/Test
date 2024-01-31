@@ -73,7 +73,6 @@ namespace Test.SubPop
             this.btn_close.TabIndex = 21;
             this.btn_close.Text = "취소";
             this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // tbox_memo
             // 
@@ -107,7 +106,6 @@ namespace Test.SubPop
             this.btn_save.TabIndex = 17;
             this.btn_save.Text = "저장";
             this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // label4
             // 

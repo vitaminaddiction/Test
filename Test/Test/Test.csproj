@@ -49,6 +49,7 @@
     <Compile Include="DB\App.cs" />
     <Compile Include="DB\DBConnector.cs" />
     <Compile Include="DB\Department.cs" />
+    <Compile Include="DB\DepEmp.cs" />
     <Compile Include="DB\Employee.cs" />
     <Compile Include="Pop\EmployeeAddPop.cs">
       <SubType>Form</SubType>
@@ -106,6 +107,12 @@
     <Compile Include="SubPop\DepartmentSubPopModify.Designer.cs">
       <DependentUpon>DepartmentSubPopModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\MoveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\MoveForm.Designer.cs">
+      <DependentUpon>MoveForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\Validation.cs" />
     <EmbeddedResource Include="Pop\EmployeeAddPop.resx">
       <DependentUpon>EmployeeAddPop.cs</DependentUpon>
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubPop\DepartmentSubPopModify.resx">
       <DependentUpon>DepartmentSubPopModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\MoveForm.resx">
+      <DependentUpon>MoveForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

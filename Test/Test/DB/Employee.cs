@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test.DB
 {
-    class Employee
+    public class Employee
     {
         public int id { get; set; }
         public int depId { get; set; }

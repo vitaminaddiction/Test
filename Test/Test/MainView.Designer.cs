@@ -130,7 +130,6 @@ namespace Test
             this.btn_department.TabIndex = 0;
             this.btn_department.Text = "부서";
             this.btn_department.UseVisualStyleBackColor = true;
-            this.btn_department.Click += new System.EventHandler(this.btn_department_Click);
             // 
             // btn_search
             // 
@@ -142,7 +141,6 @@ namespace Test
             this.btn_search.TabIndex = 1;
             this.btn_search.Text = "조회";
             this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btn_add
             // 
@@ -154,7 +152,6 @@ namespace Test
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "추가";
             this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_modify
             // 
@@ -166,7 +163,6 @@ namespace Test
             this.btn_modify.TabIndex = 3;
             this.btn_modify.Text = "수정";
             this.btn_modify.UseVisualStyleBackColor = true;
-            this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
             // 
             // btn_loginInfo
             // 
@@ -178,7 +174,6 @@ namespace Test
             this.btn_loginInfo.TabIndex = 4;
             this.btn_loginInfo.Text = "로그인정보";
             this.btn_loginInfo.UseVisualStyleBackColor = true;
-            this.btn_loginInfo.Click += new System.EventHandler(this.btn_loginInfo_Click);
             // 
             // btn_delete
             // 
@@ -190,7 +185,6 @@ namespace Test
             this.btn_delete.TabIndex = 5;
             this.btn_delete.Text = "삭제";
             this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_close
             // 
@@ -202,7 +196,6 @@ namespace Test
             this.btn_close.TabIndex = 6;
             this.btn_close.Text = "닫기";
             this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // panel3
             // 

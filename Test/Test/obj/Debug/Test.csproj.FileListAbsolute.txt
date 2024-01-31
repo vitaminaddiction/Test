@@ -16,3 +16,4 @@ C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.SubPop.DepartmentSub
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.SubPop.DepartmentSubPopModify.resources
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.Pop.EmployeeDeletePop.resources
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.Pop.LoginInfoPop.resources
+C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.Util.MoveForm.resources

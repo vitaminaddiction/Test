@@ -59,7 +59,7 @@ namespace Test.Pop
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 47);
+            this.panel1.Size = new System.Drawing.Size(514, 47);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -109,7 +109,7 @@ namespace Test.Pop
             this.flowLayoutPanel1.Controls.Add(this.btn_delete);
             this.flowLayoutPanel1.Controls.Add(this.btn_close);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(444, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(174, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(340, 47);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -124,7 +124,6 @@ namespace Test.Pop
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = "추가";
             this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_modify
             // 
@@ -136,7 +135,6 @@ namespace Test.Pop
             this.btn_modify.TabIndex = 3;
             this.btn_modify.Text = "수정";
             this.btn_modify.UseVisualStyleBackColor = true;
-            this.btn_modify.Click += new System.EventHandler(this.btn_modify_Click);
             // 
             // btn_delete
             // 
@@ -148,7 +146,6 @@ namespace Test.Pop
             this.btn_delete.TabIndex = 5;
             this.btn_delete.Text = "삭제";
             this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_close
             // 
@@ -160,7 +157,6 @@ namespace Test.Pop
             this.btn_close.TabIndex = 6;
             this.btn_close.Text = "닫기";
             this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // panel3
             // 
@@ -169,7 +165,7 @@ namespace Test.Pop
             this.panel3.Location = new System.Drawing.Point(0, 47);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(784, 403);
+            this.panel3.Size = new System.Drawing.Size(514, 299);
             this.panel3.TabIndex = 4;
             // 
             // dGridView
@@ -185,14 +181,14 @@ namespace Test.Pop
             this.dGridView.ReadOnly = true;
             this.dGridView.RowTemplate.Height = 23;
             this.dGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGridView.Size = new System.Drawing.Size(784, 388);
+            this.dGridView.Size = new System.Drawing.Size(514, 284);
             this.dGridView.TabIndex = 2;
             // 
             // DepartmentPop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 450);
+            this.ClientSize = new System.Drawing.Size(514, 346);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

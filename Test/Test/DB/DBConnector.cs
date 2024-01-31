@@ -27,41 +27,32 @@ namespace Test.DB
 
         }
 
-        
-
-        public void connect()
+        public DataSet dataAdapter(string queryString)
         {
+            DataSet ds = new DataSet();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("성공");
-                    string queryString = "select * from dbo.Employee_";
-
                     SqlCommand cmd = new SqlCommand(queryString, connection);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    
-                    while (reader.Read()) 
-                    {
-                        MessageBox.Show($"{reader[0]} + {reader[1]}");
-                    }
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(ds);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("실패" + ex);
+                    MessageBox.Show("오류" + ex);
                 }
                 finally
                 {
                     connection.Close();
                 }
+                return ds;
             }
         }
 
-
         #region 메인
-        public DataSet getDepartmentDataSet()
+        public DataSet getMainTable()
         {
             DataSet ds = new DataSet();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -87,6 +78,40 @@ namespace Test.DB
                 }
                 return ds;
             }
+        }
+        public List<DepEmp> GetDataSourse()
+        {
+            List<DepEmp> list = new List<DepEmp>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    string queryString = "select * from dbo.Department_ as D join dbo.Employee_ as E on D.id = E.depId;";
+
+                    SqlCommand cmd = new SqlCommand(queryString, connection);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DepEmp depEmp = new DepEmp(Int32.Parse(reader[0].ToString()), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), Int32.Parse(reader[4].ToString()), Int32.Parse(reader[5].ToString()), 
+                            reader[6].ToString(), reader[7].ToString(), reader[8].ToString(), reader[9].ToString(), reader[10].ToString(), reader[11].ToString(), reader[12].ToString(), reader[13].ToString(), reader[14].ToString(), 
+                            reader[15].ToString(), Char.Parse(reader[16].ToString().Trim()));
+                        list.Add(depEmp);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("실패" + ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return list;
         }
         #endregion
 
@@ -196,38 +221,28 @@ namespace Test.DB
                 }
             }
         }
-        
-        public Employee getEmployeeById(int id)
+        public int updateLoginID(string loginID, string password, int id)
         {
-            Employee employee;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string queryString = $"select * from dbo.Employee_ where id = {id}";
-
+                    string queryString = $"update dbo.Employee_ set loginId = '{loginID}', password = '{password}' where id = {id}";
                     SqlCommand cmd = new SqlCommand(queryString, connection);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        employee = new Employee(Int32.Parse(reader["id"].ToString()), Int32.Parse(reader["depId"].ToString()), reader["code"].ToString(), reader["name"].ToString(),
-                            reader["loginId"].ToString(), reader["password"].ToString(), reader["rank"].ToString(), reader["state"].ToString(), reader["phone"].ToString(), reader["email"].ToString(),
-                            reader["messengerId"].ToString(), reader["memo"].ToString(), (char)reader["gender"]);
-                    }
+                    int result = cmd.ExecuteNonQuery();
+                    return result;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("실패" + ex);
+                    return -1;
                 }
                 finally
                 {
                     connection.Close();
                 }
             }
-            return null;
         }
         #endregion
 
