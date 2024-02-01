@@ -193,7 +193,7 @@ namespace Test.Pop
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DepartmentPop";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DepartmentView";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

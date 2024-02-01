@@ -1,0 +1,10 @@
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\bin\Debug\TestAPI.exe.config
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\bin\Debug\TestAPI.exe
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\bin\Debug\TestAPI.pdb
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.csproj.AssemblyReference.cache
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.MainView.resources
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.Properties.Resources.resources
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.csproj.GenerateResource.cache
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.csproj.CoreCompileInputs.cache
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.exe
+C:\Users\PDMTECH\Desktop\Work\Test\Test\TestAPI\TestAPI\obj\Debug\TestAPI.pdb

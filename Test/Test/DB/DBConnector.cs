@@ -27,7 +27,7 @@ namespace Test.DB
 
         }
 
-        public DataSet dataAdapter(string queryString)
+        public DataSet DataAdapter(string queryString)
         {
             DataSet ds = new DataSet();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -50,56 +50,47 @@ namespace Test.DB
                 return ds;
             }
         }
-
-        #region 메인
-        public DataSet getMainTable()
+        public int NonQuery(string queryString)
         {
-            DataSet ds = new DataSet();
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-
-                    string queryString = "select * from dbo.Department_ as D join dbo.Employee_ as E on D.id = E.depId;" ;
-
                     SqlCommand cmd = new SqlCommand(queryString, connection);
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(ds);
+                    int result = cmd.ExecuteNonQuery();
+                    return result;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("실패" + ex);
+                    return -1;
                 }
                 finally
                 {
                     connection.Close();
                 }
-                return ds;
             }
         }
-        public List<DepEmp> GetDataSourse()
+        //https://blog.naver.com/dbswn2414/221865765728
+        //https://coderzero.tistory.com/entry/%EC%9C%A0%EB%8B%88%ED%8B%B0-C-%EA%B0%95%EC%A2%8C-18-%EC%9D%B5%EB%AA%85-%ED%98%95%EC%8B%9DAnonymous-Type-%EC%9D%B5%EB%AA%85-%EB%A9%94%EC%84%9C%EB%93%9CAnonymous-Method-%EB%9E%8C%EB%8B%A4%EC%8B%9DLambda-Expression
+        public List<T> GetList<T>(string queryString, Func<SqlDataReader, T> classMapping)
         {
-            List<DepEmp> list = new List<DepEmp>();
+            List<T> list = new List<T>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    string queryString = "select * from dbo.Department_ as D join dbo.Employee_ as E on D.id = E.depId;";
-
                     SqlCommand cmd = new SqlCommand(queryString, connection);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        DepEmp depEmp = new DepEmp(Int32.Parse(reader[0].ToString()), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), Int32.Parse(reader[4].ToString()), Int32.Parse(reader[5].ToString()), 
-                            reader[6].ToString(), reader[7].ToString(), reader[8].ToString(), reader[9].ToString(), reader[10].ToString(), reader[11].ToString(), reader[12].ToString(), reader[13].ToString(), reader[14].ToString(), 
-                            reader[15].ToString(), Char.Parse(reader[16].ToString().Trim()));
-                        list.Add(depEmp);
+                        T obj = classMapping(reader);
+                        list.Add(obj);
                     }
                 }
                 catch (Exception ex)
@@ -111,237 +102,103 @@ namespace Test.DB
                     connection.Close();
                 }
             }
+            return list;
+        }
+
+        #region 메인
+        public List<DepEmp> GetDataSourse()
+        {
+            string queryString = "select * from dbo.Department_ as D join dbo.Employee_ as E on D.id = E.depId;";
+            List<DepEmp> list = GetList(queryString, reader =>
+            {
+                return new DepEmp(
+                    Int32.Parse(reader[0].ToString()),
+                    reader[1].ToString(),
+                    reader[2].ToString(),
+                    reader[3].ToString(),
+                    Int32.Parse(reader[4].ToString()),
+                    Int32.Parse(reader[5].ToString()),
+                    reader[6].ToString(),
+                    reader[7].ToString(),
+                    reader[8].ToString(),
+                    reader[9].ToString(),
+                    reader[10].ToString(),
+                    reader[11].ToString(),
+                    reader[12].ToString(),
+                    reader[13].ToString(),
+                    reader[14].ToString(),
+                    reader[15].ToString(),
+                    Char.Parse(reader[16].ToString().Trim())
+                    );
+            });
             return list;
         }
         #endregion
 
         #region 사원
-        public List<Department> getDepartments()
+        public List<Department> GetDepartments()
         {
-            List<Department> list = new List<Department>();
+            string queryString = "select * from dbo.Department_";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            List<Department> list = GetList(queryString, reader => 
             {
-                try
-                {
-                    connection.Open();
-                    string queryString = "select * from dbo.Department_";
-
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        Department department = new Department(Int32.Parse(reader["id"].ToString()), reader["code"].ToString(), reader["name"].ToString(), reader["memo"].ToString());
-                        list.Add(department);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+                return new Department(
+                    Int32.Parse(reader["id"].ToString()), 
+                    reader["code"].ToString(), 
+                    reader["name"].ToString(), 
+                    reader["memo"].ToString()
+                    );
+            });
             return list;
         }
-        public int setEmployee(Employee employee)
+        public int SetEmployee(Employee employee)
         {
-            using(SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"insert into dbo.Employee_(depId, code, name, loginId, password, rank, state, phone, email, messengerId, memo, gender) " +
+            string queryString = $"insert into dbo.Employee_(depId, code, name, loginId, password, rank, state, phone, email, messengerId, memo, gender) " +
                         $"values ('{employee.depId}', '{employee.code}', '{employee.name}', '{employee.loginId}', '{employee.password}', '{employee.rank}', '{employee.state}', " +
                         $"'{employee.phone}', '{employee.email}', '{employee.messengerId}', '{employee.memo}', '{employee.gender}')";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+
+            return NonQuery(queryString);
         }
-        public int updateEmployee(Employee employee, int id)
+        public int UpdateEmployee(Employee employee)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"update dbo.Employee_ set depId = {employee.depId}, code = '{employee.code}', name = '{employee.name}', " +
+            string queryString = $"update dbo.Employee_ set depId = {employee.depId}, code = '{employee.code}', name = '{employee.name}', " +
                         $"rank = '{employee.rank}', state = '{employee.state}', phone = '{employee.phone}', email = '{employee.email}', " +
-                        $"messengerId = '{employee.messengerId}', memo = '{employee.memo}', gender = '{employee.gender}' where id = {id}";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+                        $"messengerId = '{employee.messengerId}', memo = '{employee.memo}', gender = '{employee.gender}' where id = {employee.id}";
+
+            return NonQuery(queryString);
         }
-        public int deleteEmployee(int id)
+        public int DeleteEmployee(int id)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"delete from dbo.Employee_ where id = {id}";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            string queryString = $"delete from dbo.Employee_ where id = {id}";
+
+            return NonQuery(queryString);
         }
-        public int updateLoginID(string loginID, string password, int id)
+        public int UpdateLoginID(Employee employee)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"update dbo.Employee_ set loginId = '{loginID}', password = '{password}' where id = {id}";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            string queryString = $"update dbo.Employee_ set loginId = '{employee.loginId}', password = '{employee.password}' where id = {employee.id}";
+
+            return NonQuery(queryString);
         }
         #endregion
 
         #region 부서
-        public DataSet getDepartment()
+        public int SetDepartment(Department department)
         {
-            DataSet ds = new DataSet();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
+            string queryString = $"insert into dbo.Department_(code, name, memo) values ('{department.code}', '{department.name}', '{department.memo}')";
 
-                    string queryString = "select * from dbo.Department_";
+            return NonQuery(queryString);
+        }
+        public int UpdateDepartment(Department department)
+        {
+            string queryString = $"update dbo.Department_ set code = '{department.code}', name = '{department.name}', memo = '{department.memo}' where id = {department.id}";
 
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
+            return NonQuery(queryString);
+        }
+        public int DeleteDepartment(int id)
+        {
+            string queryString = $"delete from dbo.Department_ where id = {id}";
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.Fill(ds);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                }
-                finally
-                {
-                    connection.Close();
-                }
-                return ds;
-            }
-        }
-        public int setDepartment(Department department)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"insert into dbo.Department_(code, name, memo) values ('{department.code}', '{department.name}', '{department.memo}')";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-        }
-        public int updateDepartment(Department department)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"update dbo.Department_ set code = '{department.code}', name = '{department.name}', memo = '{department.memo}' where id = {department.id}";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
-        }
-        public int deleteDepartment(int id)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    string queryString = $"delete from dbo.Department_ where id = {id}";
-                    SqlCommand cmd = new SqlCommand(queryString, connection);
-                    int result = cmd.ExecuteNonQuery();
-                    return result;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("실패" + ex);
-                    return -1;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-            }
+            return NonQuery(queryString);
         }
         #endregion
     }

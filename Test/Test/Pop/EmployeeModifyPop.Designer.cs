@@ -434,6 +434,7 @@ namespace Test.Pop
             // 
             // cbox_Dcode
             // 
+            this.cbox_Dcode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbox_Dcode.FormattingEnabled = true;
             this.cbox_Dcode.Location = new System.Drawing.Point(8, 28);
             this.cbox_Dcode.Name = "cbox_Dcode";

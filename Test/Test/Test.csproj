@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,11 +49,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\APIMainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="API\APIMainView.Designer.cs">
+      <DependentUpon>APIMainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="API\CompanyLoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="API\CompanyLoginView.Designer.cs">
+      <DependentUpon>CompanyLoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="API\EmployeeLoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="API\EmployeeLoginView.Designer.cs">
+      <DependentUpon>EmployeeLoginView.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB\App.cs" />
     <Compile Include="DB\DBConnector.cs" />
     <Compile Include="DB\Department.cs" />
     <Compile Include="DB\DepEmp.cs" />
     <Compile Include="DB\Employee.cs" />
+    <Compile Include="Manager\APIManager.cs" />
+    <Compile Include="Manager\TokenManager.cs" />
     <Compile Include="Pop\EmployeeAddPop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +137,15 @@
       <DependentUpon>MoveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Validation.cs" />
+    <EmbeddedResource Include="API\APIMainView.resx">
+      <DependentUpon>APIMainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="API\CompanyLoginView.resx">
+      <DependentUpon>CompanyLoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="API\EmployeeLoginView.resx">
+      <DependentUpon>EmployeeLoginView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pop\EmployeeAddPop.resx">
       <DependentUpon>EmployeeAddPop.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +185,7 @@
     <EmbeddedResource Include="Util\MoveForm.resx">
       <DependentUpon>MoveForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
