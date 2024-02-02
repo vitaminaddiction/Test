@@ -136,13 +136,13 @@ namespace Test.DB
         #endregion
 
         #region 사원
-        public List<Department> GetDepartments()
+        public List<DepartmentForDB> GetDepartments()
         {
             string queryString = "select * from dbo.Department_";
 
-            List<Department> list = GetList(queryString, reader => 
+            List<DepartmentForDB> list = GetList(queryString, reader => 
             {
-                return new Department(
+                return new DepartmentForDB(
                     Int32.Parse(reader["id"].ToString()), 
                     reader["code"].ToString(), 
                     reader["name"].ToString(), 
@@ -151,7 +151,7 @@ namespace Test.DB
             });
             return list;
         }
-        public int SetEmployee(Employee employee)
+        public int SetEmployee(EmployeeForDB employee)
         {
             string queryString = $"insert into dbo.Employee_(depId, code, name, loginId, password, rank, state, phone, email, messengerId, memo, gender) " +
                         $"values ('{employee.depId}', '{employee.code}', '{employee.name}', '{employee.loginId}', '{employee.password}', '{employee.rank}', '{employee.state}', " +
@@ -159,7 +159,7 @@ namespace Test.DB
 
             return NonQuery(queryString);
         }
-        public int UpdateEmployee(Employee employee)
+        public int UpdateEmployee(EmployeeForDB employee)
         {
             string queryString = $"update dbo.Employee_ set depId = {employee.depId}, code = '{employee.code}', name = '{employee.name}', " +
                         $"rank = '{employee.rank}', state = '{employee.state}', phone = '{employee.phone}', email = '{employee.email}', " +
@@ -173,7 +173,7 @@ namespace Test.DB
 
             return NonQuery(queryString);
         }
-        public int UpdateLoginID(Employee employee)
+        public int UpdateLoginID(EmployeeForDB employee)
         {
             string queryString = $"update dbo.Employee_ set loginId = '{employee.loginId}', password = '{employee.password}' where id = {employee.id}";
 
@@ -182,13 +182,13 @@ namespace Test.DB
         #endregion
 
         #region 부서
-        public int SetDepartment(Department department)
+        public int SetDepartment(DepartmentForDB department)
         {
             string queryString = $"insert into dbo.Department_(code, name, memo) values ('{department.code}', '{department.name}', '{department.memo}')";
 
             return NonQuery(queryString);
         }
-        public int UpdateDepartment(Department department)
+        public int UpdateDepartment(DepartmentForDB department)
         {
             string queryString = $"update dbo.Department_ set code = '{department.code}', name = '{department.name}', memo = '{department.memo}' where id = {department.id}";
 

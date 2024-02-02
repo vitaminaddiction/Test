@@ -23,6 +23,8 @@ namespace Test.Manager
 
         public string GenerateCompanyToken(string companyName)
         {
+            //https://vmpo.tistory.com/71
+            //https://www.csharpstudy.com/web/article/16-HttpWebRequest-%ED%99%9C%EC%9A%A9
             string responseFromServer = string.Empty;
             string targetURL = "http://test.smartqapis.com:6000/api/Customers/authenticate";
             try
@@ -111,19 +113,19 @@ namespace Test.Manager
 
         public void SaveCompanyToken(string companyName)
         {
-            string token = GenerateCompanyToken(companyName);
-            DateTime currentTime = DateTime.Now;
+            CompanyToken = GenerateCompanyToken(companyName);
+            CompanyTokenDateTime = DateTime.Now;
 
-            string tokenData = $"{token},{currentTime}";
+            string tokenData = $"{CompanyToken},{CompanyTokenDateTime}";
             File.WriteAllText(TokenPath, tokenData);
         }
 
         public void SaveEmployeeToken(string ID, string password)
         {
-            string token = GenerateEmployeeToken(ID, password);
-            DateTime currentTime = DateTime.Now;
+            EmployeeToken = GenerateEmployeeToken(ID, password);
+            EmployeeTokenDateTime = DateTime.Now;
 
-            string tokenData = $"{CompanyToken},{CompanyTokenDateTime},{token},{currentTime}";
+            string tokenData = $"{CompanyToken},{CompanyTokenDateTime},{EmployeeToken},{EmployeeTokenDateTime}";
             File.WriteAllText(TokenPath, tokenData);
         }
 
@@ -138,20 +140,14 @@ namespace Test.Manager
             {
                 CompanyTokenDateTime = DateTime.Parse(list[1]);
                 TimeSpan timeSpan = DateTime.Now - CompanyTokenDateTime;
-                if(timeSpan.TotalHours >= 12)
-                {
-                    return false;
-                }
+                if(timeSpan.TotalHours >= 12) { return false; }
                 else
                 {
                     CompanyToken = list[0];
                     return true;
                 }
             }
-            else
-            {
-                return false;
-            }
+            else { return false; }
         }
 
         public bool ValidationEmployeeToken()
@@ -165,20 +161,14 @@ namespace Test.Manager
             {
                 EmployeeTokenDateTime = DateTime.Parse(list[3]);
                 TimeSpan timeSpan = DateTime.Now - EmployeeTokenDateTime;
-                if(timeSpan.TotalHours >= 12)
-                {
-                    return false;
-                }
+                if(timeSpan.TotalHours >= 12) { return false; }
                 else
                 {
-                    EmployeeToken = list[3];
+                    EmployeeToken = list[2];
                     return true;
                 }
             }
-            else
-            {
-                return false;
-            }
+            else { return false; }
         }
     }
 }

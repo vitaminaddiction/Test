@@ -62,7 +62,7 @@ namespace Test.Pop
                 {
                     if (validation.checkPassword())
                     {
-                        Employee employee = new Employee();
+                        EmployeeForDB employee = new EmployeeForDB();
                         employee.id = employeeID;
                         employee.loginId = tbox_ID.Text;
                         employee.password = tbox_password.Text;

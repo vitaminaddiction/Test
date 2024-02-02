@@ -179,6 +179,7 @@ namespace Test.API
             this.tBox_ID.Name = "tBox_ID";
             this.tBox_ID.Size = new System.Drawing.Size(131, 21);
             this.tBox_ID.TabIndex = 2;
+            this.tBox_ID.Text = "admin";
             // 
             // flowLayoutPanel4
             // 
@@ -204,8 +205,10 @@ namespace Test.API
             // 
             this.tBox_Password.Location = new System.Drawing.Point(3, 24);
             this.tBox_Password.Name = "tBox_Password";
+            this.tBox_Password.PasswordChar = '*';
             this.tBox_Password.Size = new System.Drawing.Size(131, 21);
             this.tBox_Password.TabIndex = 3;
+            this.tBox_Password.Text = "1111";
             // 
             // panel5
             // 
@@ -237,6 +240,7 @@ namespace Test.API
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EmployeeLoginView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeLoginView";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

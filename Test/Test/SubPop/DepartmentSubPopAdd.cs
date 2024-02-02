@@ -52,7 +52,7 @@ namespace Test.SubPop
                 }
                 else
                 {
-                    Department department = new Department(tbox_depCode.Text, tbox_depName.Text, tbox_memo.Text);
+                    DepartmentForDB department = new DepartmentForDB(tbox_depCode.Text, tbox_depName.Text, tbox_memo.Text);
                     int result = App.Instance().DBConnector.SetDepartment(department);
                     if (result < 0)
                     {

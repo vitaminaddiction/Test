@@ -34,7 +34,7 @@ namespace Test.SubPop
             panel1.MouseUp += MainView_MouseUp;
             panel1.MouseMove += MainView_MouseMove;
         }
-        public DepartmentSubPopDelete(Department dep) : this()
+        public DepartmentSubPopDelete(DepartmentForDB dep) : this()
         {
             label_code.Text = "부서 코드 : " + dep.code;
             label_name.Text = "부서명 : " + dep.name;

@@ -19,7 +19,7 @@ namespace Test.Pop
         MoveForm moveForm = new MoveForm();
         int GapX, GapY;
 
-        List<Department> list;
+        List<DepartmentForDB> list;
         public EmployeeAddPop()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace Test.Pop
         {
             DBConnector con = App.Instance().DBConnector;
             list = con.GetDepartments();
-            foreach(Department item in list)
+            foreach(DepartmentForDB item in list)
             {
                 cbox_Dcode.Items.Add(item.code);
             }
@@ -95,7 +95,7 @@ namespace Test.Pop
                                     else
                                     {
                                         char gender = rbtn_male.Checked ? 'M' : 'F';
-                                        Employee employee = new Employee(list[cbox_Dcode.SelectedIndex].id, tbox_Ecode.Text, tbox_Ename.Text, tbox_rank.Text, tbox_state.Text,
+                                        EmployeeForDB employee = new EmployeeForDB(list[cbox_Dcode.SelectedIndex].id, tbox_Ecode.Text, tbox_Ename.Text, tbox_rank.Text, tbox_state.Text,
                                             tbox_phone.Text, tbox_email.Text, tbox_messengerId.Text, tbox_memo.Text, gender);
                                         int result = App.Instance().DBConnector.SetEmployee(employee);
                                         if (result < 0)

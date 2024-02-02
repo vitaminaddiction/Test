@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Test.Util;
 using Test.Manager;
+using Test.DB;
 
 namespace Test.API
 {
@@ -34,18 +35,19 @@ namespace Test.API
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            TokenManager tokenManager = new TokenManager();
-
-            if (tokenManager.ValidationCompanyToken())
+            TokenManager tokenManager = App.Instance().TokenManager;
+            if (tBox_Name.Text.Equals("debug"))
             {
-                EmployeeLoginView employeeLoginView = new EmployeeLoginView(tokenManager);
+                if (!tokenManager.ValidationCompanyToken()) { tokenManager.SaveCompanyToken(tBox_Name.Text); }
+                EmployeeLoginView employeeLoginView = new EmployeeLoginView();
                 employeeLoginView.Show();
-                //this.Close();
+                this.Hide();
             }
             else
             {
-                tokenManager.SaveCompanyToken(tBox_Name.Text);
+                MessageBox.Show("debug만 사용가능합니다.");
             }
+            
         }
 
         private void btn_close_Click(object sender, EventArgs e)

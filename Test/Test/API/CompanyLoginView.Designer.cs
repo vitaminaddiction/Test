@@ -184,6 +184,7 @@ namespace Test.API
             this.tBox_Name.Name = "tBox_Name";
             this.tBox_Name.Size = new System.Drawing.Size(131, 21);
             this.tBox_Name.TabIndex = 1;
+            this.tBox_Name.Text = "debug";
             // 
             // flowLayoutPanel3
             // 
@@ -269,6 +270,7 @@ namespace Test.API
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CompanyLoginView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CompanyTokenView";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

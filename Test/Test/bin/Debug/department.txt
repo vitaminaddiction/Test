@@ -1,0 +1,65 @@
+{
+  "Data": [
+    {
+      "Id": 1,
+      "Code": "A",
+      "Name": "개발부서",
+      "Memo": "",
+      "UpperDepartmentId": null,
+      "UpperDepartmentCode": null,
+      "UpperDepartmentName": null,
+      "FactoryId": 1,
+      "FactoryCode": "F01",
+      "FactoryName": "피디엠테크 달서공장"
+    },
+    {
+      "Id": 1001,
+      "Code": "D-001",
+      "Name": "생산1팀",
+      "Memo": "사출생산팀",
+      "UpperDepartmentId": null,
+      "UpperDepartmentCode": null,
+      "UpperDepartmentName": null,
+      "FactoryId": 1,
+      "FactoryCode": "F01",
+      "FactoryName": "피디엠테크 달서공장"
+    },
+    {
+      "Id": 1002,
+      "Code": "D-002",
+      "Name": "생산2팀",
+      "Memo": "프레스 생산팀",
+      "UpperDepartmentId": null,
+      "UpperDepartmentCode": null,
+      "UpperDepartmentName": null,
+      "FactoryId": 1,
+      "FactoryCode": "F01",
+      "FactoryName": "피디엠테크 달서공장"
+    },
+    {
+      "Id": 1003,
+      "Code": "D-003",
+      "Name": "생산3팀",
+      "Memo": "절삭 생산팀",
+      "UpperDepartmentId": null,
+      "UpperDepartmentCode": null,
+      "UpperDepartmentName": null,
+      "FactoryId": 1,
+      "FactoryCode": "F01",
+      "FactoryName": "피디엠테크 달서공장"
+    },
+    {
+      "Id": 3001,
+      "Code": "1234",
+      "Name": "12341234",
+      "Memo": "",
+      "UpperDepartmentId": null,
+      "UpperDepartmentCode": null,
+      "UpperDepartmentName": null,
+      "FactoryId": 1,
+      "FactoryCode": "F01",
+      "FactoryName": "피디엠테크 달서공장"
+    }
+  ],
+  "Error": null
+}

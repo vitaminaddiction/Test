@@ -40,7 +40,7 @@ namespace Test.Pop
 
         public void SetTable()
         {
-            List<Department> list = App.Instance().DBConnector.GetDepartments();
+            List<DepartmentForDB> list = App.Instance().DBConnector.GetDepartments();
             dGridView.DataSource = list;
 
             dGridView.Columns["id"].Visible = false;
@@ -58,7 +58,7 @@ namespace Test.Pop
         {
             if (dGridView.CurrentRow != null)
             {
-                if (dGridView.CurrentRow.DataBoundItem is Department dep)
+                if (dGridView.CurrentRow.DataBoundItem is DepartmentForDB dep)
                 {
                     DepartmentSubPopModify pop = new DepartmentSubPopModify(dep);
                     pop.Show();
@@ -76,7 +76,7 @@ namespace Test.Pop
         {
             if (dGridView.CurrentRow != null)
             {
-                if (dGridView.CurrentRow.DataBoundItem is Department dep)
+                if (dGridView.CurrentRow.DataBoundItem is DepartmentForDB dep)
                 {
                     DepartmentSubPopDelete pop = new DepartmentSubPopDelete(dep);
                     pop.Show();

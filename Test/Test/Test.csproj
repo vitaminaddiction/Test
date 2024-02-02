@@ -49,11 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\APIMainView.cs">
+    <Compile Include="APIDTO\Department.cs" />
+    <Compile Include="APIDTO\Employee.cs" />
+    <Compile Include="APIDTO\Permission.cs" />
+    <Compile Include="API\GridView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="API\APIMainView.Designer.cs">
-      <DependentUpon>APIMainView.cs</DependentUpon>
+    <Compile Include="API\GridView.Designer.cs">
+      <DependentUpon>GridView.cs</DependentUpon>
     </Compile>
     <Compile Include="API\CompanyLoginView.cs">
       <SubType>Form</SubType>
@@ -69,9 +72,9 @@
     </Compile>
     <Compile Include="DB\App.cs" />
     <Compile Include="DB\DBConnector.cs" />
-    <Compile Include="DB\Department.cs" />
+    <Compile Include="DB\DepartmentForDB.cs" />
     <Compile Include="DB\DepEmp.cs" />
-    <Compile Include="DB\Employee.cs" />
+    <Compile Include="DB\EmployeeForDB.cs" />
     <Compile Include="Manager\APIManager.cs" />
     <Compile Include="Manager\TokenManager.cs" />
     <Compile Include="Pop\EmployeeAddPop.cs">
@@ -137,8 +140,8 @@
       <DependentUpon>MoveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Validation.cs" />
-    <EmbeddedResource Include="API\APIMainView.resx">
-      <DependentUpon>APIMainView.cs</DependentUpon>
+    <EmbeddedResource Include="API\GridView.resx">
+      <DependentUpon>GridView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="API\CompanyLoginView.resx">
       <DependentUpon>CompanyLoginView.cs</DependentUpon>

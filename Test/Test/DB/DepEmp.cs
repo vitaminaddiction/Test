@@ -9,8 +9,8 @@ namespace Test.DB
 {
     public class DepEmp
     {
-        public Department Department { get; set; }
-        public Employee Employee { get; set; }
+        public DepartmentForDB Department { get; set; }
+        public EmployeeForDB Employee { get; set; }
 
 
         public int DepID { get; set; }
@@ -66,8 +66,8 @@ namespace Test.DB
             this.MessengerID = MessengerID;
             this.EmpMemo = EmpMemo;
             this.Gender = Gender;
-            this.Department = new Department(DepID, DepCode, DepName, DepMemo);
-            this.Employee = new Employee(EmpID, DepID_FK, EmpCode, EmpName, LoginID, Password, Rank, State, Phone, Email, MessengerID, EmpMemo, Gender);
+            this.Department = new DepartmentForDB(DepID, DepCode, DepName, DepMemo);
+            this.Employee = new EmployeeForDB(EmpID, DepID_FK, EmpCode, EmpName, LoginID, Password, Rank, State, Phone, Email, MessengerID, EmpMemo, Gender);
         }
         
     }

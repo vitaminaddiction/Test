@@ -35,7 +35,7 @@ namespace Test.SubPop
             panel1.MouseMove += MainView_MouseMove;
         }
 
-        public DepartmentSubPopModify(Department dep) : this()
+        public DepartmentSubPopModify(DepartmentForDB dep) : this()
         {
             tbox_depCode.Text = dep.code;
             tbox_depName.Text = dep.name;
@@ -60,7 +60,7 @@ namespace Test.SubPop
                 }
                 else
                 {
-                    Department department = new Department(depID, tbox_depCode.Text, tbox_depName.Text, tbox_memo.Text);
+                    DepartmentForDB department = new DepartmentForDB(depID, tbox_depCode.Text, tbox_depName.Text, tbox_memo.Text);
                     int result = App.Instance().DBConnector.UpdateDepartment(department);
                     if (result < 0)
                     {

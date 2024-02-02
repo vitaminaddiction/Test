@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Test.Manager;
 
 namespace Test.DB
 {
@@ -13,6 +14,8 @@ namespace Test.DB
         protected App() 
         {
             dBConnector = new DBConnector();
+            aPIManager = new APIManager();
+            tokenManager = new TokenManager();
         }
 
         public static App Instance()
@@ -24,12 +27,26 @@ namespace Test.DB
             return instance;
         }
 
+        private APIManager aPIManager;
         private DBConnector dBConnector;
+        private TokenManager tokenManager;
 
         public DBConnector DBConnector
         {
             get { return dBConnector; }
             set { dBConnector = value; }
         }
+
+        public APIManager APIManager
+        {
+            get { return aPIManager; }
+            set { aPIManager = value; }
+        }
+        public TokenManager TokenManager
+        {
+            get { return tokenManager; }
+            set { tokenManager = value; }
+        }
+
     }
 }
