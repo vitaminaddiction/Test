@@ -9,32 +9,32 @@ namespace Test.DB
 {
     public class DepartmentForDB
     {
-        public int id { get; set; }
+        public int ID { get; set; }
         [DisplayName("부서 코드")]
-        public string code { get; set; }
+        public string Code { get; set; }
         [DisplayName("부서명")]
-        public string name { get; set; }
+        public string Name { get; set; }
         [DisplayName("메모")]
-        public string memo { get; set; }
+        public string Memo { get; set; }
 
         public DepartmentForDB(string code, string name, string memo)
         {
-            this.code = code;
-            this.name = name;
-            this.memo = memo;
+            this.Code = code;
+            this.Name = name;
+            this.Memo = memo;
         }
 
         public DepartmentForDB(int id, string code, string name , string memo)
         {
-            this.id = id;
-            this.code = code;
-            this.name = name;
-            this.memo = memo;
+            this.ID = id;
+            this.Code = code;
+            this.Name = name;
+            this.Memo = memo;
         }
 
         public override string ToString()
         {
-            return $"Department : {{ id : {id}, code : {code}, name : {name}, memo : {memo} }}";
+            return $"Department : {{ id : {ID}, code : {Code}, name : {Name}, memo : {Memo} }}";
         }
     }
 }

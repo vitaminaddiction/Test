@@ -97,16 +97,11 @@ namespace TestAPI
 
             //Console.WriteLine(responseFromServer);
         }
-        enum Gender
-        {
-            Male, Female
-        }
         private void btn_login_Click_1(object sender, EventArgs e)
         {
             TEst test = new TEst();
-            Gender gender = Gender.Male;
-            Console.WriteLine(gender);
-            
+            test.Gender = Gender.Male;
+
         }
     }
 }

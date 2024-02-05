@@ -6,71 +6,117 @@ using System.Threading.Tasks;
 
 namespace Test.DB
 {
+    public enum Gender
+    {
+        male, female
+    }
+
+    
     public class EmployeeForDB
     {
-        public int id { get; set; }
-        public int depId { get; set; }
-        public string code { get; set; }
-        public string name { get; set; }
-        public string loginId { get; set; }
-        public string password { get; set; }
-        public string rank { get; set; }
-        public string state { get; set; }
-        public string phone { get; set; }
-        public string email { get; set; }
-        public string messengerId { get; set; }
-        public string memo { get; set; }
-        public char gender { get; set; }
+        public int ID { get; set; }
+        public int DepID { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string LoginID { get; set; }
+        public string Password { get; set; }
+        public string Rank { get; set; }
+        public string State { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string MessengerID { get; set; }
+        public string Memo { get; set; }
+        public Gender Gender { get; set; }
+        public string OriginalFileName { get; set; }
+        public string FileName { get; set; }
 
         public EmployeeForDB()
         {
 
         }
-        public EmployeeForDB(int id, int depId, string code, string name, string loginId, string password, string rank, string state, string phone, string email, string messengerId, string memo, char gender)
+
+        public EmployeeForDB(int id, int depId, string code, string name, string loginId, string password, string rank, string state, string phone, string email, string messengerId, string memo, Gender gender)
         {
-            this.id = id;
-            this.depId = depId;
-            this.code = code;
-            this.name = name;
-            this.loginId = loginId;
-            this.password = password;
-            this.rank = rank;
-            this.state = state;
-            this.phone = phone;
-            this.email = email;
-            this.messengerId = messengerId;
-            this.memo = memo;
-            this.gender = gender;
+            this.ID = id;
+            this.DepID = depId;
+            this.Code = code;
+            this.Name = name;
+            this.LoginID = loginId;
+            this.Password = password;
+            this.Rank = rank;
+            this.State = state;
+            this.Phone = phone;
+            this.Email = email;
+            this.MessengerID = messengerId;
+            this.Memo = memo;
+            this.Gender = gender;
         }
 
-        public EmployeeForDB(int depId, string code, string name, string loginId, string password, string rank, string state, string phone, string email, string messengerId, string memo, char gender)
+        public EmployeeForDB(int id, int depId, string code, string name, string loginId, string password, string rank, string state, string phone, string email, string messengerId, string memo, Gender gender, string OriginalFileName)
         {
-            this.depId = depId;
-            this.code = code;
-            this.name = name;
-            this.loginId = loginId;
-            this.password = password;
-            this.rank = rank;
-            this.state = state;
-            this.phone = phone;
-            this.email = email;
-            this.messengerId = messengerId;
-            this.memo = memo;
-            this.gender = gender;
+            this.ID = id;
+            this.DepID = depId;
+            this.Code = code;
+            this.Name = name;
+            this.LoginID = loginId;
+            this.Password = password;
+            this.Rank = rank;
+            this.State = state;
+            this.Phone = phone;
+            this.Email = email;
+            this.MessengerID = messengerId;
+            this.Memo = memo;
+            this.Gender = gender;
+            this.OriginalFileName = OriginalFileName;
         }
 
-        public EmployeeForDB(int depId, string code, string name, string rank, string state, string phone, string email, string messengerId, string memo, char gender)
+        public EmployeeForDB(int depId, string code, string name, string loginId, string password, string rank, string state, string phone, string email, string messengerId, string memo, Gender gender)
         {
-            this.depId = depId;
-            this.code = code;
-            this.name = name;
-            this.rank = rank;
-            this.state = state;
-            this.phone = phone;
-            this.email = email;
-            this.messengerId = messengerId;
-            this.memo = memo;
-            this.gender = gender;
+            this.DepID = depId;
+            this.Code = code;
+            this.Name = name;
+            this.LoginID = loginId;
+            this.Password = password;
+            this.Rank = rank;
+            this.State = state;
+            this.Phone = phone;
+            this.Email = email;
+            this.MessengerID = messengerId;
+            this.Memo = memo;
+            this.Gender = gender;
+        }
+
+        public EmployeeForDB(int depId, string code, string name, string loginId, string password, string rank, string state, string phone, string email, string messengerId, string memo, Gender gender, string OriginalFileName)
+        {
+            this.DepID = depId;
+            this.Code = code;
+            this.Name = name;
+            this.LoginID = loginId;
+            this.Password = password;
+            this.Rank = rank;
+            this.State = state;
+            this.Phone = phone;
+            this.Email = email;
+            this.MessengerID = messengerId;
+            this.Memo = memo;
+            this.Gender = gender;
+            this.OriginalFileName = OriginalFileName;
+        }
+
+        public EmployeeForDB(int depId, string code, string name, string rank, string state, string phone, string email, string messengerId, string memo, Gender gender, string OriginalFileName, string FileName)
+        {
+            this.DepID = depId;
+            this.Code = code;
+            this.Name = name;
+            this.Rank = rank;
+            this.State = state;
+            this.Phone = phone;
+            this.Email = email;
+            this.MessengerID = messengerId;
+            this.Memo = memo;
+            this.Gender = gender;
+            this.OriginalFileName = OriginalFileName;
+            this.FileName = FileName;
         }
     }
 }

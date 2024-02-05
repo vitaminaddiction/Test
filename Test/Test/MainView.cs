@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Test.Pop;
 using Test.DB;
 using Test.Util;
+using System.IO;
 
 namespace Test
 {
@@ -45,7 +46,7 @@ namespace Test
 
         public void SetTable()
         {
-            List<DepEmp> list = App.Instance().DBConnector.GetDataSourse();
+            List<DepEmp> list = App.Instance().DBConnector.SelectDataSourse();
             dGridView.DataSource = list;
 
             dGridView.Columns["DepID"].Visible = false;
@@ -54,6 +55,8 @@ namespace Test
             dGridView.Columns["Department"].Visible = false;
             dGridView.Columns["Employee"].Visible = false;
             dGridView.Columns["DepMemo"].Visible = false;
+            dGridView.Columns["OriginalFileName"].Visible = false;
+            dGridView.Columns["FileName"].Visible = false;
         }
 
         #region 이벤트

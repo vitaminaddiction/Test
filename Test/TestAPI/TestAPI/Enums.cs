@@ -8,9 +8,6 @@ namespace TestAPI
 {
     public class Enums
     {
-        enum Gender
-        {
-            Male, Female
-        }
+        
     }
 }

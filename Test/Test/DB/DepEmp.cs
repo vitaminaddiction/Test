@@ -45,9 +45,12 @@ namespace Test.DB
         [DisplayName("메모")]
         public string EmpMemo { get; set; }
         [DisplayName("성별")]
-        public char Gender { get; set; }
+        public Gender Gender { get; set; }
+        [DisplayName("원본 파일 이름")]
+        public string OriginalFileName { get; set; }
+        public string FileName { get; set; }
 
-        public DepEmp(int DepID, string DepCode, string DepName, string DepMemo, int EmpID, int DepID_FK, string EmpCode, string EmpName, string LoginID, string Password, string Rank, string State, string Phone, string Email, string MessengerID, string EmpMemo, char Gender)
+        public DepEmp(int DepID, string DepCode, string DepName, string DepMemo, int EmpID, int DepID_FK, string EmpCode, string EmpName, string LoginID, string Password, string Rank, string State, string Phone, string Email, string MessengerID, string EmpMemo, Gender Gender, string OriginalFileName, string FileName)
         {
             this.DepID = DepID;
             this.DepCode = DepCode;
@@ -66,8 +69,10 @@ namespace Test.DB
             this.MessengerID = MessengerID;
             this.EmpMemo = EmpMemo;
             this.Gender = Gender;
+            this.OriginalFileName = OriginalFileName;
+            this.FileName = FileName;
             this.Department = new DepartmentForDB(DepID, DepCode, DepName, DepMemo);
-            this.Employee = new EmployeeForDB(EmpID, DepID_FK, EmpCode, EmpName, LoginID, Password, Rank, State, Phone, Email, MessengerID, EmpMemo, Gender);
+            this.Employee = new EmployeeForDB(EmpID, DepID_FK, EmpCode, EmpName, LoginID, Password, Rank, State, Phone, Email, MessengerID, EmpMemo, Gender, OriginalFileName);
         }
         
     }

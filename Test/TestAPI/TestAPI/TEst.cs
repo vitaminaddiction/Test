@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace TestAPI
 {
+    public enum Gender
+    {
+        Male, Female
+    }
+
     public class TEst
     {
         public Gender Gender { get; set; }

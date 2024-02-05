@@ -46,8 +46,9 @@ namespace Test.API
 
             JObject jObject = aPIManager.getDepartment("1");
 
-            List<Department> list = jObject["Data"].ToObject<List<Department>>();
-
+            List<Department> list = new List<Department>();
+            if(!(jObject is null)) { list = jObject["Data"].ToObject<List<Department>>(); }
+            
             dGridView.DataSource = list;
         }
 
@@ -62,13 +63,18 @@ namespace Test.API
             JObject jObject = aPIManager.getEmployee("1");
 
             List<Employee> list = new List<Employee>();
-            foreach (var item in jObject["Data"])
+
+            if (!(jObject is null)) 
             {
-                Employee employee = item.ToObject<Employee>();
-                employee.Permission = item["Permissions"].ToObject<List<Permission>>();
-                
-                list.Add(employee);
+                foreach (var item in jObject["Data"])
+                {
+                    Employee employee = item.ToObject<Employee>();
+                    employee.Permission = item["Permissions"].ToObject<List<Permission>>();
+
+                    list.Add(employee);
+                }
             }
+            
 
             dGridView.DataSource = list;
         }

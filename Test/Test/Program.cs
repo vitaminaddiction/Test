@@ -17,7 +17,8 @@ namespace Test
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CompanyLoginView());
+            //Application.Run(new CompanyLoginView());
+            Application.Run(new MainView());
         }
     }
 }

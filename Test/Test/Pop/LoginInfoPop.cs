@@ -63,9 +63,9 @@ namespace Test.Pop
                     if (validation.checkPassword())
                     {
                         EmployeeForDB employee = new EmployeeForDB();
-                        employee.id = employeeID;
-                        employee.loginId = tbox_ID.Text;
-                        employee.password = tbox_password.Text;
+                        employee.ID = employeeID;
+                        employee.LoginID = tbox_ID.Text;
+                        employee.Password = tbox_password.Text;
                         int result = App.Instance().DBConnector.UpdateLoginID(employee);
                         if (result < 0)
                         {

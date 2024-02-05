@@ -41,16 +41,14 @@ namespace Test.API
         private void Btn_login_Click(object sender, EventArgs e)
         {
             TokenManager tokenManager = App.Instance().TokenManager;
-            if (tBox_ID.Text.Equals("admin") && tBox_Password.Text.Equals("1111"))
+
+            if (!tokenManager.ValidationEmployeeToken()) { tokenManager.SaveEmployeeToken(tBox_ID.Text, tBox_Password.Text); }
+            if (tokenManager.EmployeeToken == string.Empty) { }
+            else
             {
-                if (!tokenManager.ValidationEmployeeToken()) { tokenManager.SaveEmployeeToken(tBox_ID.Text, tBox_Password.Text); }
                 GridView aPIMainView = new GridView();
                 aPIMainView.Show();
                 this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("admin/1111만 가능합니다.");
             }
         }
 

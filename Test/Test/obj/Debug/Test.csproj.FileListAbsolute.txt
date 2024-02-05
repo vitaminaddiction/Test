@@ -16,10 +16,10 @@ C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.csproj.GenerateResou
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.exe
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.pdb
-C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.csproj.AssemblyReference.cache
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.API.CompanyLoginView.resources
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.API.EmployeeLoginView.resources
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\bin\Debug\Newtonsoft.Json.dll
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\bin\Debug\Newtonsoft.Json.xml
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.csproj.CopyComplete
 C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.API.GridView.resources
+C:\Users\PDMTECH\Desktop\Work\Test\Test\Test\obj\Debug\Test.csproj.AssemblyReference.cache

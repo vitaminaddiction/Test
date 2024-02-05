@@ -34,7 +34,6 @@ namespace Test.SubPop
             panel1.MouseUp += MainView_MouseUp;
         }
 
-
         private void btn_save_Click(object sender, EventArgs e)
         {
             Validation validation = new Validation();
@@ -53,7 +52,7 @@ namespace Test.SubPop
                 else
                 {
                     DepartmentForDB department = new DepartmentForDB(tbox_depCode.Text, tbox_depName.Text, tbox_memo.Text);
-                    int result = App.Instance().DBConnector.SetDepartment(department);
+                    int result = App.Instance().DBConnector.InsertDepartment(department);
                     if (result < 0)
                     {
                         MessageBox.Show("실패");

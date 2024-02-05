@@ -51,7 +51,6 @@ namespace Test.Pop
             this.panel9 = new System.Windows.Forms.Panel();
             this.tbox_rank = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tbox_Ename = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -70,6 +69,9 @@ namespace Test.Pop
             this.label13 = new System.Windows.Forms.Label();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
+            this.btn_picture = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -80,9 +82,12 @@ namespace Test.Pop
             this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel18.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -117,7 +122,6 @@ namespace Test.Pop
             this.tableLayoutPanel1.Controls.Add(this.panel11, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel10, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 2, 0);
@@ -131,6 +135,7 @@ namespace Test.Pop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(412, 272);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
@@ -318,15 +323,6 @@ namespace Test.Pop
             this.label8.TabIndex = 5;
             this.label8.Text = "직위";
             // 
-            // panel8
-            // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(274, 68);
-            this.panel8.Margin = new System.Windows.Forms.Padding(0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(138, 68);
-            this.panel8.TabIndex = 5;
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.tbox_Ename);
@@ -385,11 +381,15 @@ namespace Test.Pop
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.panel8);
+            this.panel5.Controls.Add(this.btn_picture);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(274, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(138, 68);
+            this.panel5.Padding = new System.Windows.Forms.Padding(3);
+            this.tableLayoutPanel1.SetRowSpan(this.panel5, 2);
+            this.panel5.Size = new System.Drawing.Size(138, 136);
             this.panel5.TabIndex = 2;
             // 
             // panel4
@@ -502,6 +502,37 @@ namespace Test.Pop
             this.btn_save.Text = "저장";
             this.btn_save.UseVisualStyleBackColor = false;
             // 
+            // btn_picture
+            // 
+            this.btn_picture.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_picture.FlatAppearance.BorderSize = 0;
+            this.btn_picture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_picture.Location = new System.Drawing.Point(60, 110);
+            this.btn_picture.Name = "btn_picture";
+            this.btn_picture.Size = new System.Drawing.Size(75, 23);
+            this.btn_picture.TabIndex = 3;
+            this.btn_picture.Text = "불러오기";
+            this.btn_picture.UseVisualStyleBackColor = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.pBox);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(132, 104);
+            this.panel8.TabIndex = 4;
+            // 
+            // pBox
+            // 
+            this.pBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pBox.Location = new System.Drawing.Point(0, 0);
+            this.pBox.Name = "pBox";
+            this.pBox.Size = new System.Drawing.Size(130, 102);
+            this.pBox.TabIndex = 0;
+            this.pBox.TabStop = false;
+            // 
             // EmployeeModifyPop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -534,12 +565,15 @@ namespace Test.Pop
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,7 +586,6 @@ namespace Test.Pop
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox tbox_Ename;
         private System.Windows.Forms.Label label5;
@@ -587,5 +620,8 @@ namespace Test.Pop
         private System.Windows.Forms.RadioButton rbtn_female;
         private System.Windows.Forms.RadioButton rbtn_male;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btn_picture;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pBox;
     }
 }

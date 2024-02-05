@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Test.Pop
         MoveForm moveForm = new MoveForm();
         int GapX, GapY;
 
+        string deleteFileName = string.Empty;
         int employeeID = 0;
         public EmployeeDeletePop()
         {
@@ -40,6 +42,7 @@ namespace Test.Pop
             label_code.Text = "사원 코드 : " + depEmp.EmpCode;
             label_name.Text = "사원명 : " + depEmp.EmpName;
             this.employeeID = depEmp.EmpID;
+            deleteFileName = depEmp.FileName;
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -51,6 +54,14 @@ namespace Test.Pop
             }
             else
             {
+                string saveImage_route = @"C:\ImageForder";
+                string filePath = Path.Combine(saveImage_route, $"{deleteFileName}.png");
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
                 MessageBox.Show("성공");
                 Reset.Invoke(this, EventArgs.Empty);
                 this.Close();

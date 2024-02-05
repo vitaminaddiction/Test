@@ -40,7 +40,7 @@ namespace Test.Pop
 
         public void SetTable()
         {
-            List<DepartmentForDB> list = App.Instance().DBConnector.GetDepartments();
+            List<DepartmentForDB> list = App.Instance().DBConnector.SelectDepartments();
             dGridView.DataSource = list;
 
             dGridView.Columns["id"].Visible = false;

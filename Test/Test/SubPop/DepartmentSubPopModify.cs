@@ -37,10 +37,10 @@ namespace Test.SubPop
 
         public DepartmentSubPopModify(DepartmentForDB dep) : this()
         {
-            tbox_depCode.Text = dep.code;
-            tbox_depName.Text = dep.name;
-            tbox_memo.Text = dep.memo;
-            depID = dep.id;
+            tbox_depCode.Text = dep.Code;
+            tbox_depName.Text = dep.Name;
+            tbox_memo.Text = dep.Memo;
+            depID = dep.ID;
         }
 
         private void btn_save_Click(object sender, EventArgs e)

@@ -36,18 +36,14 @@ namespace Test.API
         private void btn_login_Click(object sender, EventArgs e)
         {
             TokenManager tokenManager = App.Instance().TokenManager;
-            if (tBox_Name.Text.Equals("debug"))
+            if (!tokenManager.ValidationCompanyToken()) { tokenManager.SaveCompanyToken(tBox_Name.Text); }
+            if(tokenManager.CompanyToken == string.Empty) { }
+            else
             {
-                if (!tokenManager.ValidationCompanyToken()) { tokenManager.SaveCompanyToken(tBox_Name.Text); }
                 EmployeeLoginView employeeLoginView = new EmployeeLoginView();
                 employeeLoginView.Show();
                 this.Hide();
             }
-            else
-            {
-                MessageBox.Show("debug만 사용가능합니다.");
-            }
-            
         }
 
         private void btn_close_Click(object sender, EventArgs e)

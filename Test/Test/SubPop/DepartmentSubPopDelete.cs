@@ -36,9 +36,9 @@ namespace Test.SubPop
         }
         public DepartmentSubPopDelete(DepartmentForDB dep) : this()
         {
-            label_code.Text = "부서 코드 : " + dep.code;
-            label_name.Text = "부서명 : " + dep.name;
-            depID = dep.id;
+            label_code.Text = "부서 코드 : " + dep.Code;
+            label_name.Text = "부서명 : " + dep.Name;
+            depID = dep.ID;
         }
 
         private void btn_delete_Click(object sender, EventArgs e)

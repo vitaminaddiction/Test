@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,15 +36,16 @@ namespace Test.Pop
             panel1.MouseDown += MainView_MouseDown;
             panel1.MouseUp += MainView_MouseUp;
             panel1.MouseMove += MainView_MouseMove;
+            btn_image.Click += Btn_image_Click;
         }
 
         public void initialize()
         {
             DBConnector con = App.Instance().DBConnector;
-            list = con.GetDepartments();
+            list = con.SelectDepartments();
             foreach(DepartmentForDB item in list)
             {
-                cbox_Dcode.Items.Add(item.code);
+                cbox_Dcode.Items.Add(item.Code);
             }
             cbox_Dcode.SelectedIndex = 0;
         }
@@ -94,16 +96,22 @@ namespace Test.Pop
                                     }
                                     else
                                     {
-                                        char gender = rbtn_male.Checked ? 'M' : 'F';
-                                        EmployeeForDB employee = new EmployeeForDB(list[cbox_Dcode.SelectedIndex].id, tbox_Ecode.Text, tbox_Ename.Text, tbox_rank.Text, tbox_state.Text,
-                                            tbox_phone.Text, tbox_email.Text, tbox_messengerId.Text, tbox_memo.Text, gender);
-                                        int result = App.Instance().DBConnector.SetEmployee(employee);
-                                        if (result < 0)
+                                        Gender gender = rbtn_male.Checked ? Gender.male : Gender.female;
+                                        EmployeeForDB employee = new EmployeeForDB(list[cbox_Dcode.SelectedIndex].ID, tbox_Ecode.Text, tbox_Ename.Text, tbox_loginId.Text, tbox_password.Text, tbox_rank.Text, tbox_state.Text,
+                                            tbox_phone.Text, tbox_email.Text, tbox_messengerId.Text, tbox_memo.Text, gender,pBox.Tag.ToString());
+                                        string fileName = App.Instance().DBConnector.InsertEmployeeWithImage(employee);
+                                        if (fileName is null)
                                         {
                                             MessageBox.Show("실패");
                                         }
                                         else
                                         {
+                                            string saveImage_route = @"C:\ImageForder";
+                                            if (!System.IO.Directory.Exists(saveImage_route))
+                                            {
+                                                System.IO.Directory.CreateDirectory(saveImage_route);
+                                            }
+                                            pBox.Image.Save(saveImage_route + @"\" + $"{fileName}.png");
                                             MessageBox.Show("성공");
                                             Reset.Invoke(this, EventArgs.Empty);
                                             this.Close();
@@ -114,7 +122,6 @@ namespace Test.Pop
                                 {
                                     MessageBox.Show("비밀번호는 8자리 이상 영어,숫자,특수문자를 포함해야 합니다.");
                                 }
-
                             }
                         }
                     }
@@ -129,7 +136,27 @@ namespace Test.Pop
 
         private void cbox_code_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbox_Dname.Text = list[cbox_Dcode.SelectedIndex].name;
+            tbox_Dname.Text = list[cbox_Dcode.SelectedIndex].Name;
+        }
+
+        private void Btn_image_Click(object sender, EventArgs e)
+        {
+            string image_file = string.Empty;
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.InitialDirectory = @"D:\";
+            
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                image_file = dialog.FileName;
+                pBox.Tag = Path.GetFileName(image_file);
+            }
+            else if(dialog.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+            pBox.Image = Bitmap.FromFile(image_file);
+            pBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         #region 마우스 이동 //https://424485.tistory.com/57
@@ -151,6 +178,7 @@ namespace Test.Pop
 
             moveForm.Hide();
         }
+
         private void MainView_MouseMove(object sender, MouseEventArgs e)
         {
             moveForm.Location = new Point(Cursor.Position.X - GapX, Cursor.Position.Y - GapY);

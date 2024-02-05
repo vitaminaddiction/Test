@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Test.Manager
 {
@@ -45,24 +46,6 @@ namespace Test.Manager
             }
             catch (WebException ex)
             {
-                //Console.WriteLine("오류-----------------------------");
-                //Console.WriteLine(ex);
-                //Console.WriteLine("-----------------------------------");
-                //string response = string.Empty;
-                //int statusCode = 0;
-                //if (ex.Status == WebExceptionStatus.ProtocolError)
-                //{
-                //    statusCode = (int)((HttpWebResponse)ex.Response).StatusCode;
-                //}
-                //using (StreamReader r = new StreamReader(((HttpWebResponse)ex.Response).GetResponseStream()))
-                //{
-                //    response = r.ReadToEnd();
-                //}
-                //Console.WriteLine("StatusCode : " + statusCode);
-                //Console.WriteLine("response : " + response);
-
-
-
                 Console.WriteLine("---------------------------------------------");
                 Console.WriteLine(ex);
                 Console.WriteLine("---------------------------------------------");
@@ -71,6 +54,8 @@ namespace Test.Manager
                 if (ex.Status == WebExceptionStatus.ProtocolError)
                 {
                     statusCode = (int)((HttpWebResponse)ex.Response).StatusCode;
+
+                    Console.WriteLine(statusCode);
                 }
                 switch (statusCode)
                 {
@@ -81,11 +66,15 @@ namespace Test.Manager
                     case 404:
                         break;
                     case 500:
+                        //EmployeeToken이 다른 경우
+                        MessageBox.Show("토큰이 유효하지 않습니다. 다시 실행해주세요.");
                         break;
                 }
             }
 
-            JObject jObject = JObject.Parse(responseFromServer);
+            JObject jObject = new JObject();
+            try { jObject = JObject.Parse(responseFromServer); }
+            catch { return null; }
 
             return jObject;
         }
